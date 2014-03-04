@@ -18,6 +18,7 @@ namespace CursValutarCSharp
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
+            NetworkingClass.ParseData(NetworkingClass.RequestData());
         }
     }
 }

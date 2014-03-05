@@ -31,17 +31,21 @@ namespace CursValutarCSharp
 
         public static void ParseData(string data)
         {
-            XNamespace ns = "http://www.bnr.ro/xsd";
-            var rates = XDocument.Load("http://www.bnr.ro/nbrfxrates.xml")
-                        .Descendants(ns + "Rate")
-                        .Select(r => new
-                        {
-                            Currency = r.Attribute("currency").Value,
-                            Value = (decimal)r,
-                            Multiplier = (int?)r.Attribute("multiplier")
-                        })
-                        .ToList();
+            XDocument xdoc = XDocument.Load(data);
 
+            List <CurrencyRate> rates = (from rate in xdoc.Element("DataSet").Element("Body").Element("Cube").Elements("Rate")
+                                         select new CurrencyRate
+                                         {
+                                             currencyValue = rate.Value,
+                                             currencyName = rate.FirstAttribute.ToString()
+                                         }
+                                             
+                                         ).ToList();
+
+            foreach (CurrencyRate rate in rates)
+            {
+                Console.WriteLine("{0}", rate.currencyName);
+            }
         }
     }
 }

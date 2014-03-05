@@ -1,0 +1,8 @@
+C:\work\C#\CursValutarCSharp\CursValutarCSharp\bin\Release\CursValutarCSharp.exe.config
+C:\work\C#\CursValutarCSharp\CursValutarCSharp\bin\Release\CursValutarCSharp.exe
+C:\work\C#\CursValutarCSharp\CursValutarCSharp\bin\Release\CursValutarCSharp.pdb
+C:\work\C#\CursValutarCSharp\CursValutarCSharp\obj\Release\CursValutarCSharp.Properties.Resources.resources
+C:\work\C#\CursValutarCSharp\CursValutarCSharp\obj\Release\CursValutarCSharp.csproj.GenerateResource.Cache
+C:\work\C#\CursValutarCSharp\CursValutarCSharp\obj\Release\CursValutarCSharp.exe
+C:\work\C#\CursValutarCSharp\CursValutarCSharp\obj\Release\CursValutarCSharp.pdb
+C:\work\C#\CursValutarCSharp\CursValutarCSharp\obj\Release\CursValutarCSharp.csprojResolveAssemblyReference.cache

@@ -19,6 +19,7 @@ namespace CursValutarCSharp
             Application.Run(new Form1());
 
             NetworkingClass.ParseData(NetworkingClass.RequestData());
+            //string temp = NetworkingClass.RequestData();
         }
     }
 }

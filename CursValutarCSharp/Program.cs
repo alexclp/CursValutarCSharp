@@ -18,6 +18,8 @@ namespace CursValutarCSharp
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
+            MessageBox.Show("Entered program.cs");
+
             NetworkingClass.ParseData(NetworkingClass.RequestData());
             //string temp = NetworkingClass.RequestData();
         }

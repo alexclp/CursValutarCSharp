@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
+using System.Windows.Forms;
 
 namespace CursValutarCSharp
 {
@@ -26,25 +27,30 @@ namespace CursValutarCSharp
             reader.Close();
             response.Close();
 
+            MessageBox.Show("Finished getting XML");
+
             return responseFromServer;
         }
 
         public static void ParseData(string data)
         {
-            XDocument xdoc = XDocument.Load(data);
+            XElement xelement = XElement.Load(@"C:\Users\alexclp\Desktop\xml.txt");
+            IEnumerable<XElement> rates = xelement.Elements();
 
-            List <CurrencyRate> rates = (from rate in xdoc.Element("DataSet").Element("Body").Element("Cube").Elements("Rate")
-                                         select new CurrencyRate
-                                         {
-                                             currencyValue = rate.Value,
-                                             currencyName = rate.FirstAttribute.ToString()
-                                         }
-                                             
-                                         ).ToList();
+            List<CurrencyRate> list = new List<CurrencyRate> { };
 
-            foreach (CurrencyRate rate in rates)
+            foreach (var rate in rates)
             {
-                Console.WriteLine("{0}", rate.currencyName);
+                string attribute = rate.FirstAttribute.ToString();
+
+                string value = rate.Value;
+                string name = attribute.Substring(10);
+
+                CurrencyRate currentRate = new CurrencyRate();
+                currentRate.currencyValue = value;
+                currentRate.currencyName = name;
+
+                list.Add(currentRate);
             }
         }
     }

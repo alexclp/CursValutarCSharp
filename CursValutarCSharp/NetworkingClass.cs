@@ -27,12 +27,10 @@ namespace CursValutarCSharp
             reader.Close();
             response.Close();
 
-            MessageBox.Show("Finished getting XML");
-
             return responseFromServer;
         }
 
-        public static void ParseData(string data)
+        public static List<CurrencyRate> ParseData(string data)
         {
             XElement xelement = XElement.Load(@"C:\Users\alexclp\Desktop\xml.txt");
             IEnumerable<XElement> rates = xelement.Elements();
@@ -52,6 +50,7 @@ namespace CursValutarCSharp
 
                 list.Add(currentRate);
             }
+            return list;
         }
     }
 }

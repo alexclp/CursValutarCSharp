@@ -30,7 +30,7 @@ namespace CursValutarCSharp
             return responseFromServer;
         }
 
-        public static List<CurrencyRate> ParseData(string data)
+        public static List<CurrencyRate> ParseData()
         {
             XElement xelement = XElement.Load(@"C:\Users\alexclp\Desktop\xml.txt");
             IEnumerable<XElement> rates = xelement.Elements();

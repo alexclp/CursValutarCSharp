@@ -16,5 +16,27 @@ namespace CursValutarCSharp
         {
             InitializeComponent();
         }
+
+        private DataTable GetCurrencyRatesTable()
+        {
+            DataTable table = new DataTable();
+
+            table.Columns.Add("Currency".ToString());
+            table.Columns.Add("Rate".ToString());
+
+            List<CurrencyRate> list = NetworkingClass.ParseData();
+
+            foreach(CurrencyRate current in list)
+            {
+                DataRow row = new DataRow();
+
+                row["Currency"] = current.currencyName;
+                row["Rate"] = current.currencyValue;
+
+                table.Rows.Add(row);
+            }
+
+            return table;
+        }
     }
 }

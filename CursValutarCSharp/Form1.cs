@@ -15,6 +15,7 @@ namespace CursValutarCSharp
         public Form1()
         {
             InitializeComponent();
+            this.dataGridView1.DataSource = GetCurrencyRatesTable();
         }
 
         private DataTable GetCurrencyRatesTable()
@@ -28,7 +29,7 @@ namespace CursValutarCSharp
 
             foreach(CurrencyRate current in list)
             {
-                DataRow row = new DataRow();
+                DataRow row = table.NewRow();
 
                 row["Currency"] = current.currencyName;
                 row["Rate"] = current.currencyValue;
@@ -38,5 +39,7 @@ namespace CursValutarCSharp
 
             return table;
         }
+
+
     }
 }

@@ -6,3 +6,4 @@ C:\work\C#\CursValutarCSharp\CursValutarCSharp\obj\Debug\CursValutarCSharp.Prope
 C:\work\C#\CursValutarCSharp\CursValutarCSharp\obj\Debug\CursValutarCSharp.csproj.GenerateResource.Cache
 C:\work\C#\CursValutarCSharp\CursValutarCSharp\obj\Debug\CursValutarCSharp.exe
 C:\work\C#\CursValutarCSharp\CursValutarCSharp\obj\Debug\CursValutarCSharp.pdb
+C:\work\C#\CursValutarCSharp\CursValutarCSharp\obj\Debug\CursValutarCSharp.Form1.resources

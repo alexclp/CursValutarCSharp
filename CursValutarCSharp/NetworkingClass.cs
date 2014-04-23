@@ -50,6 +50,9 @@ namespace CursValutarCSharp
 
                 list.Add(currentRate);
             }
+
+            SQLManager.InsertData(list);
+
             return list;
         }
     }

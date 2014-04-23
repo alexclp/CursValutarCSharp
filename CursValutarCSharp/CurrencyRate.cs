@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CursValutarCSharp
 {
-    class CurrencyRate
+    public class CurrencyRate
     {
         public string currencyName { get; set; }
         public string currencyValue { get; set; }

@@ -51,7 +51,13 @@ namespace CursValutarCSharp
                 list.Add(currentRate);
             }
 
-            SQLManager.InsertData(list);
+            foreach (CurrencyRate rate in list)
+            {
+                string currentName = rate.currencyName;
+                string currentValue = rate.currencyValue;
+
+                SQLManager.InsertValues(currentName, currentValue);
+            }
 
             return list;
         }

@@ -13,6 +13,7 @@ namespace CursValutarCSharp
         public static void InsertData(List<CurrencyRate> data)
         {
             string connectionString = Properties.Settings.Default.RatesConnectionString;
+
             using (SqlCeConnection con = new SqlCeConnection(connectionString))
             {
                 con.Open();
@@ -22,21 +23,34 @@ namespace CursValutarCSharp
                     string name = rate.currencyName;
                     string value = rate.currencyValue;
 
-                    using (SqlCeCommand com = new SqlCeCommand("INSERT INTO Rates (name, value) VALUES (@name, @value)", con))
-                    {
-                        com.Parameters.Add("@name", SqlDbType.VarChar);
-                        com.Parameters["@name"].Value = name;
+                    string query = "INSERT INTO Rates (name, value) VALUES (@name, @value)";
+                    SqlCeCommand command = new SqlCeCommand(query, con);
 
-                        com.Parameters.Add("@value", SqlDbType.VarChar);
-                        com.Parameters["@value"].Value = value;
+                    command.Parameters.AddWithValue("@name", name);
+                    command.Parameters.AddWithValue("@value", value);
 
-                        Console.WriteLine("command = {0}", com.CommandText);
-
-                        com.ExecuteNonQuery();
-                    }
+                    int affectedRows = command.ExecuteNonQuery();
+                    Console.WriteLine("affected rows = {0}", affectedRows);
                 }
-
                 con.Close();
+            }
+        }
+
+        public static void InsertValues(string name, string value)
+        {
+            string connectionString = Properties.Settings.Default.RatesConnectionString;
+
+            using (SqlCeConnection connection = new SqlCeConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCeCommand command = new SqlCeCommand("INSERT INTO Rates (name, value) VALUES (@name, @value)", connection))
+                {
+                    command.Parameters.AddWithValue("@name", name);
+                    command.Parameters.AddWithValue("@value", value);
+
+                    command.ExecuteNonQuery();
+                }
             }
         }
 
@@ -61,6 +75,7 @@ namespace CursValutarCSharp
                         });
                     }
                 }
+                con.Close();
             }
 
             return toReturn;

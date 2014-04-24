@@ -23,11 +23,13 @@ namespace CursValutarCSharp
                     string name = rate.currencyName;
                     string value = rate.currencyValue;
 
-                    string query = "INSERT INTO Rates (name, value) VALUES (@name, @value)";
+                    name = name.Substring(0, name.Length - 1);
+
+                    string query = String.Format("INSERT INTO Rates (name, value) VALUES ({0}, {1})", "'" + name + "'", "'" + value + "'");
                     SqlCeCommand command = new SqlCeCommand(query, con);
 
-                    command.Parameters.AddWithValue("@name", name);
-                    command.Parameters.AddWithValue("@value", value);
+                    //command.Parameters.AddWithValue("@name", name);
+                    //command.Parameters.AddWithValue("@value", value);
 
                     int affectedRows = command.ExecuteNonQuery();
                     Console.WriteLine("affected rows = {0}", affectedRows);
@@ -51,6 +53,7 @@ namespace CursValutarCSharp
 
                     command.ExecuteNonQuery();
                 }
+                connection.Close();
             }
         }
 

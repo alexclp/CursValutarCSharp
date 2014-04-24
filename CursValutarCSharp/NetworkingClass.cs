@@ -56,8 +56,10 @@ namespace CursValutarCSharp
                 string currentName = rate.currencyName;
                 string currentValue = rate.currencyValue;
 
-                SQLManager.InsertValues(currentName, currentValue);
+                
             }
+
+            SQLManager.InsertData(list);
 
             return list;
         }

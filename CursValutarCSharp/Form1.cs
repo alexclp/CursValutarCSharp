@@ -16,41 +16,6 @@ namespace CursValutarCSharp
         {
             InitializeComponent();
             this.dataGridView1.DataSource = GetCurrencyRatesTable();
-
-            ColorRows();
-        }
-
-        private void ColorRows()
-        {/*
-            List<CurrencyRate> list = SQLManager.GetData();
-            
-            for (int currentIndex = 0; currentIndex < this.dataGridView1.Rows.Count - 1; ++currentIndex)
-            {
-                DataGridViewRow currentRow = this.dataGridView1.Rows[currentIndex];
-                CurrencyRate currentRate = list[currentIndex];
-
-                currentRate.currencyValue.Replace(".", ",");
-
-                Console.WriteLine("Value = {0}", System.Convert.ToDecimal(currentRate.currencyValue));
-
-                //decimal temp = System.Convert.ToDecimal(currentRate.currencyValue);
-                //Int64 tempint = System.Convert.ToInt16(temp);
-
-                
-
-                if (1 >)
-                {
-                    Console.WriteLine("entering if!!");
-
-                    currentRow.DefaultCellStyle.BackColor = Color.Red;
-                }
-            }
-          * */
-
-            foreach (DataGridViewRow row in this.dataGridView1.Rows)
-            {
-                row.DefaultCellStyle.BackColor = Color.Red;
-            }
         }
 
         private DataTable GetCurrencyRatesTable()
